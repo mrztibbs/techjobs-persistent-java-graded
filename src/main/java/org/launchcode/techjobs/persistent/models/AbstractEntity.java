@@ -1,7 +1,5 @@
 package org.launchcode.techjobs.persistent.models;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -16,7 +14,7 @@ public abstract class AbstractEntity {
     private int id;
 
     @NotBlank
-    @Size(min = 3,max = 75)
+    @Size(min = 3, max = 75, message = "Name must be between 3 and 75 characters!")
     private String name;
 
     public int getId() {
