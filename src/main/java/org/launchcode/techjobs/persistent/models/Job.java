@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name="job")
 public class Job extends AbstractEntity{
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employer_id", nullable = false)
     @NotNull(message = "Employer is Required!")
     private Employer employer;
 

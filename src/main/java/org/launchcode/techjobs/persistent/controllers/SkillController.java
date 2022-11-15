@@ -20,12 +20,14 @@ public class SkillController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model){
+        model.addAttribute("title", "Add Skill");
         model.addAttribute("skills", skillRepository.findAll());
         return "index";
     }
 
     @GetMapping("add")
     public String displayAddSkillForm(Model model){
+        model.addAttribute("title", "Add Skill");
         model.addAttribute(new Skill());
         return "skills/add";
     }
@@ -36,7 +38,8 @@ public class SkillController {
         if (errors.hasErrors()){
             return "skills/add";
         }
-
+        model.addAttribute("title", "Add Skill");
+        model.addAttribute("skills", skillRepository.findAll());
         skillRepository.save(newSkill);
         return "redirect:/";
     }
