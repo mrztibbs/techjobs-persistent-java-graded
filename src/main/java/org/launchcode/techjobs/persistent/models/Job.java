@@ -1,17 +1,13 @@
 package org.launchcode.techjobs.persistent.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="job")
 public class Job extends AbstractEntity{
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employer_id", nullable = false)
-    @NotNull(message = "Employer is Required!")
     private Employer employer;
 
     @ManyToMany

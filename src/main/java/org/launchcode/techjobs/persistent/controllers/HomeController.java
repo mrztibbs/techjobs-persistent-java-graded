@@ -63,11 +63,11 @@ public class HomeController {
         }
 
         //Find the employer that matches the id and set the job employer
-        Optional optEmployer = employerRepository.findById(employerId);
+        Optional<Employer> optEmployer = employerRepository.findById(employerId);
         if (optEmployer.isPresent()) {
-           Employer employer = (Employer) optEmployer.get();
+//           Employer employer = (Employer) optEmployer.get();
             //Set the employer of the job
-            newJob.setEmployer(employer);
+            newJob.setEmployer(optEmployer.get());
         }
 
         //Set the skills needed for job

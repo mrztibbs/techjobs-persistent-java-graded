@@ -13,7 +13,8 @@ public class Employer extends AbstractEntity {
     @Size(min = 2, max = 50, message = "Location must be between 3 and 50 characters!")
     private String location;
 
-    @OneToMany(mappedBy = "employer")
+    @OneToMany
+    @JoinColumn(name = "employer_id")
     private List<Job> jobs = new ArrayList<>();
 
     public String getLocation() {
